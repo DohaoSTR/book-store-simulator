@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="BookStore.View.EntityControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="700"
+             TextElement.Foreground="Black"
+             TextElement.FontSize="14">
+    <UserControl.Resources>
+        <Style x:Key="HeaderStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="Background" Value="#FFB873"/>
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="BorderBrush" Value="#06246F"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="MinWidth" Value="0" />
+            <Setter Property="MinHeight" Value="40" />
+            <Setter Property="Padding" Value="15"/>
+            <Setter Property="Cursor" Value="Hand" />
+        </Style>
+    </UserControl.Resources>
+    
+        <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.7*"/>
+            <ColumnDefinition Width="0.3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <DataGrid Background="#FFB873"
+                  Grid.RowSpan="2"
+                  Height="700"
+                  VerticalScrollBarVisibility="Auto"
+                  x:Name="EntityDataGrid"  
+                  AutoGenerateColumns="False"         
+                  IsReadOnly="True"
+                  FontSize="14"
+                  BorderBrush="#06246F"
+                  ColumnHeaderStyle="{StaticResource HeaderStyle}"
+                  CanUserResizeRows="False"
+                  FrozenColumnCount="1">
+        </DataGrid>
+
+        <StackPanel x:Name="SidebarPanel" 
+                    Grid.Column="1" 
+                    Grid.RowSpan="1" 
+                    Margin="10 0 10 0"
+                    >
+        </StackPanel>
+        
+        <StackPanel Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" Margin="10 0 10 0">
+            <Button Height="35" Margin="0 20 0 0" Click="Add_Click">Добавить данные</Button>
+            <Button Height="35" Margin="0 25 0 0" Click="Remove_Click">Удалить данные</Button>
+            <Button Height="35" Margin="0 25 0 25" Click="Update_Click">Изменить данные</Button>
+        </StackPanel>
+    </Grid>
+</UserControl>
